@@ -38,7 +38,9 @@ export const blogPostsQuery = `*[_type == "post" && project == "ideas360"] | ord
   "slug": slug.current,
   excerpt,
   publishedAt,
-  readTime
+  readTime,
+  "mainImageUrl": mainImage.asset->url,
+  "mainImageAlt": mainImage.alt
 }`;
 
 export const blogPostBySlugQuery = `*[_type == "post" && project == "ideas360" && slug.current == $slug][0] {
@@ -47,6 +49,8 @@ export const blogPostBySlugQuery = `*[_type == "post" && project == "ideas360" &
   excerpt,
   publishedAt,
   readTime,
+  "mainImageUrl": mainImage.asset->url,
+  "mainImageAlt": mainImage.alt,
   body
 }`;
 
@@ -57,6 +61,8 @@ export type SanityPost = {
   excerpt: string;
   publishedAt: string;
   readTime?: string | number;
+  mainImageUrl?: string;
+  mainImageAlt?: string;
   body?: SanityBlock[];
 };
 

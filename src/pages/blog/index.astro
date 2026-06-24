@@ -31,8 +31,8 @@ try {
               <div class="overflow-hidden bg-shell">
                 <img
                   class="h-52 w-full object-cover transition duration-300 group-hover:scale-105"
-                  src={getFallbackImage(i)}
-                  alt={post.title}
+                  src={post.mainImageUrl ?? getFallbackImage(i)}
+                  alt={post.mainImageAlt ?? post.title}
                   loading="lazy"
                 />
               </div>

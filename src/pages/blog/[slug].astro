@@ -28,7 +28,8 @@ try {
 if (!post) post = listPost;
 
 const bodyHtml = post.body ? blocksToHtml(post.body) : "";
-const coverImage = getFallbackImage(imageIndex);
+const coverImage = post.mainImageUrl ?? getFallbackImage(imageIndex);
+const coverAlt = post.mainImageAlt ?? post.title;
 ---
 
 <BaseLayout
@@ -74,7 +75,7 @@ const coverImage = getFallbackImage(imageIndex);
       <img
         class="h-64 w-full object-cover sm:h-80 lg:h-96"
         src={coverImage}
-        alt={post.title}
+        alt={coverAlt}
         loading="eager"
       />
     </div>
