@@ -35,7 +35,7 @@ const coverAlt = post.mainImageAlt ?? post.title;
 <BaseLayout
   title={`${post.title} | Ideas 360 Panamá`}
   description={post.excerpt}
-  image={coverImage}
+  image={post.mainImageUrl ?? coverImage}
 >
   <nav class="border-b border-ink/10 bg-cream py-3">
     <div class="container-page">
