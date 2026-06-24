@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import Doctors from "@/sections/Doctors.astro";
+import Testimonials from "@/sections/Testimonials.astro";
+import Contact from "@/sections/Contact.astro";
+---
+
+<BaseLayout
+  title="Soluciones Promocionales | Ideas 360 Panamá"
+  description="Ideas 360 desarrolla artículos promocionales, regalos corporativos, textiles y material POP personalizados para empresas, eventos e instituciones en Panamá."
+>
+  <section class="section-pad bg-white">
+    <div class="container-page grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <SectionTitle
+          eyebrow="Quiénes somos"
+          title="Convertimos tu identidad en productos útiles, visibles y memorables."
+          intro="Ideas 360 es una empresa panameña dedicada a artículos promocionales, regalos corporativos, textiles y material POP. Trabajamos con empresas, instituciones y equipos que necesitan llevar su marca más lejos."
+        />
+        <p class="mt-6 text-base leading-8 text-cocoa">
+          Nuestra propuesta es simple: tu logo en todo lo que tu marca necesita para estar presente, ser útil y ser recordada. Desde bolígrafos hasta uniformes, desde kits corporativos hasta material POP para ferias y activaciones.
+        </p>
+        <p class="mt-4 text-base leading-8 text-cocoa">
+          Trabajamos con empresas de distintos sectores en Panamá que necesitan artículos personalizados para campañas, eventos, regalos institucionales, uniformes y comunicación de marca física.
+        </p>
+        <div class="mt-8 flex gap-3">
+          <a class="btn-primary" href="#contacto">Solicitar cotización</a>
+          <a class="btn-secondary" href="/services">Ver productos</a>
+        </div>
+      </div>
+      <div class="h-[34rem] overflow-hidden rounded-lg shadow-soft">
+        <img
+          src="/images/about-page.jpg"
+          alt="Ideas 360 — artículos promocionales y regalos corporativos en Panamá"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+  <Doctors />
+  <Testimonials />
+  <Contact />
+</BaseLayout>

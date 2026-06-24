@@ -1,0 +1,53 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+
+const benefits = [
+  {
+    title: "Variedad de soluciones",
+    description: "Opciones promocionales para distintas necesidades, presupuestos, estilos de marca y tipos de evento. Desde artículos económicos hasta sets premium."
+  },
+  {
+    title: "Asesoría comercial",
+    description: "Te orientamos en la selección de productos según objetivo, cantidad, técnica de personalización y presupuesto disponible. No tienes que decidir solo."
+  },
+  {
+    title: "Enfoque B2B",
+    description: "Trabajamos con empresas, instituciones, equipos de mercadeo, departamentos de compras y organizadores de eventos en Panamá."
+  },
+  {
+    title: "Personalización de marca",
+    description: "Aplicamos tu identidad visual en los productos seleccionados mediante la técnica más adecuada: bordado, serigrafía, sublimación, grabado y más."
+  },
+  {
+    title: "Atención directa",
+    description: "El proceso está diseñado para facilitar la cotización y coordinación de tus requerimientos de manera ágil y transparente."
+  },
+  {
+    title: "Resultados memorables",
+    description: "Convertimos tu logo en objetos que se usan, se recuerdan y que mantienen tu marca presente mucho después del primer contacto."
+  }
+];
+---
+
+<section class="section-pad bg-cream">
+  <div class="container-page">
+    <SectionTitle
+      eyebrow="¿Por qué Ideas 360?"
+      title="Tu socio estratégico en artículos promocionales."
+      intro="Ideas 360 es una empresa B2B orientada a ayudar a organizaciones en Panamá a llevar su marca a productos útiles, visibles y memorables."
+      align="center"
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {benefits.map((benefit) => (
+        <div class="rounded-lg border border-ink/10 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
+          <div class="mb-1 h-1 w-8 rounded-full bg-rose"></div>
+          <h3 class="mt-4 font-semibold text-ink">{benefit.title}</h3>
+          <p class="mt-3 text-sm leading-6 text-cocoa">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a class="btn-primary" href="#contacto">Solicitar cotización</a>
+    </div>
+  </div>
+</section>

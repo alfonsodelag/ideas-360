@@ -1,0 +1,112 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import { services } from "@/content/services";
+import { siteConfig } from "@/config/site";
+
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+---
+
+<section id="contacto" class="section-pad bg-shell">
+  <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+    <div>
+      <SectionTitle
+        eyebrow="Cotización"
+        title="Solicita una cotización para tu empresa."
+        intro="Completa el formulario con la información básica de tu requerimiento y te contactaremos para revisar opciones, productos y personalización disponibles."
+      />
+      <div class="mt-8 space-y-3 text-sm leading-6 text-cocoa">
+        <p>
+          <strong class="text-ink">Teléfonos:</strong>{" "}
+          <a class="hover:text-rose transition-colors" href="tel:2243140">{siteConfig.phone}</a>
+        </p>
+        <p>
+          <strong class="text-ink">Correo:</strong>{" "}
+          <a class="hover:text-rose transition-colors" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        </p>
+        <p><strong class="text-ink">Dirección:</strong> {siteConfig.address}</p>
+        {siteConfig.social.instagram && (
+          <p>
+            <strong class="text-ink">Instagram:</strong>{" "}
+            <a class="hover:text-rose transition-colors" href={siteConfig.social.instagram} target="_blank" rel="noopener">@ideas360pty</a>
+          </p>
+        )}
+      </div>
+      <p class="mt-6 rounded-md border border-rose/20 bg-white px-4 py-3 text-xs text-cocoa">
+        Puedes enviarnos tu logo o arte por correo después de solicitar la cotización.
+      </p>
+    </div>
+
+    <form class="card grid gap-4 p-6" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value={web3formsKey ?? ""} />
+      <input type="hidden" name="subject" value="Nueva solicitud de cotización - Ideas 360" />
+      <div class="grid gap-4 sm:grid-cols-2">
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          required
+        />
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="text"
+          name="company"
+          placeholder="Empresa"
+          required
+        />
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="email"
+          name="email"
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="tel"
+          name="phone"
+          placeholder="Teléfono"
+        />
+      </div>
+      <select
+        class="rounded-md border border-ink/15 px-4 py-3 text-sm text-cocoa focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+        name="product"
+      >
+        <option value="">Producto de interés</option>
+        {services.map((service) => <option value={service.title}>{service.title}</option>)}
+        <option value="Otro">Otro producto</option>
+      </select>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="text"
+          name="quantity"
+          placeholder="Cantidad aproximada"
+        />
+        <input
+          class="rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+          type="text"
+          name="date"
+          placeholder="Fecha requerida"
+        />
+      </div>
+      <textarea
+        class="min-h-32 rounded-md border border-ink/15 px-4 py-3 text-sm focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose"
+        name="message"
+        placeholder="Cuéntanos más sobre tu requerimiento, objetivo de la campaña o evento"
+      ></textarea>
+      {!web3formsKey && (
+        <p class="rounded-md bg-rose/10 px-4 py-3 text-sm text-cocoa">
+          Configura PUBLIC_WEB3FORMS_ACCESS_KEY en Vercel o en tu archivo .env local.
+        </p>
+      )}
+      <button class="btn-primary" type="submit">Enviar solicitud</button>
+      <p class="text-center text-xs text-cocoa">
+        También puedes escribirnos a{" "}
+        <a class="font-semibold text-rose hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </p>
+    </form>
+  </div>
+</section>

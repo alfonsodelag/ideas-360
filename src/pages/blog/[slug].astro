@@ -1,0 +1,158 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Contact from "@/sections/Contact.astro";
+import { sanityClient, blogPostsQuery, blogPostBySlugQuery, type SanityPost } from "@/lib/sanity";
+import { getFallbackImage, formatDate, blocksToHtml } from "@/lib/portableText";
+
+export async function getStaticPaths() {
+  let posts: SanityPost[] = [];
+  try {
+    posts = await sanityClient.fetch<SanityPost[]>(blogPostsQuery);
+  } catch (_) {}
+
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: { post, imageIndex: i },
+  }));
+}
+
+const { post: listPost, imageIndex } = Astro.props as { post: SanityPost; imageIndex: number };
+
+let post: SanityPost | null = null;
+try {
+  post = await sanityClient.fetch<SanityPost>(blogPostBySlugQuery, {
+    slug: listPost.slug,
+  });
+} catch (_) {}
+
+if (!post) post = listPost;
+
+const bodyHtml = post.body ? blocksToHtml(post.body) : "";
+const coverImage = getFallbackImage(imageIndex);
+---
+
+<BaseLayout
+  title={`${post.title} | Ideas 360 Panamá`}
+  description={post.excerpt}
+  image={coverImage}
+>
+  <nav class="border-b border-ink/10 bg-cream py-3">
+    <div class="container-page">
+      <ol class="flex items-center gap-2 text-xs text-cocoa">
+        <li><a class="hover:text-rose" href="/">Inicio</a></li>
+        <li class="text-ink/30">/</li>
+        <li><a class="hover:text-rose" href="/blog">Blog</a></li>
+        <li class="text-ink/30">/</li>
+        <li class="max-w-xs truncate font-medium text-ink">{post.title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="section-pad bg-white">
+    <div class="container-page max-w-4xl">
+      <div class="flex items-center gap-3">
+        <span class="eyebrow">Blog</span>
+        {post.readTime && (
+          <span class="text-xs text-cocoa">· {post.readTime} min de lectura</span>
+        )}
+      </div>
+      <h1 class="mt-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl lg:text-5xl">
+        {post.title}
+      </h1>
+      <p class="mt-5 text-lg leading-7 text-cocoa">{post.excerpt}</p>
+      <time
+        class="mt-4 block text-sm font-semibold text-rose"
+        datetime={post.publishedAt}
+      >
+        Publicado el {formatDate(post.publishedAt)}
+      </time>
+    </div>
+  </section>
+
+  <div class="container-page max-w-4xl">
+    <div class="overflow-hidden rounded-2xl shadow-soft">
+      <img
+        class="h-64 w-full object-cover sm:h-80 lg:h-96"
+        src={coverImage}
+        alt={post.title}
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <section class="section-pad bg-white">
+    <div class="container-page max-w-3xl">
+      {bodyHtml ? (
+        <div class="prose-articulo" set:html={bodyHtml} />
+      ) : (
+        <p class="text-cocoa">Contenido no disponible.</p>
+      )}
+
+      <div class="mt-12 rounded-2xl bg-shell p-8 text-center">
+        <p class="font-display text-xl font-semibold text-ink">
+          ¿Listo para llevar tu logo más lejos?
+        </p>
+        <p class="mt-2 text-sm text-cocoa">
+          Solicita una cotización y recibe orientación sobre artículos promocionales para tu empresa, campaña o evento.
+        </p>
+        <a class="btn-primary mt-5" href="/#contacto">Solicitar cotización</a>
+      </div>
+
+      <div class="mt-10 border-t border-ink/10 pt-8">
+        <a
+          class="inline-flex items-center gap-2 text-sm font-semibold text-rose hover:text-ink transition-colors"
+          href="/blog"
+        >
+          <svg class="h-4 w-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          Volver al blog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</BaseLayout>
+
+<style>
+  .prose-articulo :global(h2) {
+    font-family: "Montserrat", "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #232323;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-articulo :global(h3) {
+    font-family: "Montserrat", "Inter", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #232323;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-articulo :global(p) {
+    line-height: 1.75;
+    color: #5C5C5C;
+    margin-bottom: 1.25rem;
+  }
+  .prose-articulo :global(strong) {
+    color: #232323;
+    font-weight: 600;
+  }
+  .prose-articulo :global(blockquote) {
+    border-left: 4px solid #ED1C24;
+    padding-left: 1.25rem;
+    font-style: italic;
+    color: #5C5C5C;
+    margin: 1.5rem 0;
+  }
+  .prose-articulo :global(a) {
+    color: #ED1C24;
+    text-decoration: underline;
+  }
+  .prose-articulo :global(a:hover) {
+    color: #232323;
+  }
+</style>

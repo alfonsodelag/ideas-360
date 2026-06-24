@@ -1,0 +1,68 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+---
+
+<section class="section-pad bg-cream">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="relative">
+      <div class="h-80 w-full overflow-hidden rounded-lg shadow-soft">
+        <img
+          src="/images/about-section.jpg"
+          alt="Productos promocionales con logo para empresas — Ideas 360 Panamá"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="absolute -bottom-4 -right-4 hidden rounded-lg bg-rose p-5 text-white shadow-soft lg:block">
+        <p class="font-display text-2xl font-bold">Tu logo</p>
+        <p class="mt-1 text-sm text-white/80">en todo</p>
+      </div>
+    </div>
+    <div>
+      <SectionTitle
+        eyebrow="Por qué los promocionales importan"
+        title="Tu marca no solo debe verse: debe quedarse."
+        intro="Un artículo promocional bien elegido convierte tu logo en una presencia cotidiana. Una libreta en una reunión, una botella en el escritorio, una camisa en un evento o una bolsa en la calle mantienen tu marca visible mucho después de la primera impresión."
+      />
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="card p-5">
+          <div class="mb-3 flex size-9 items-center justify-center rounded-md bg-rose/10">
+            <svg class="h-5 w-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-ink">Visibilidad constante</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Un logo en un objeto útil se ve una y otra vez, en contextos distintos y ante personas diferentes.</p>
+        </div>
+        <div class="card p-5">
+          <div class="mb-3 flex size-9 items-center justify-center rounded-md bg-rose/10">
+            <svg class="h-5 w-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-ink">Mayor recordación</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Los productos útiles generan una asociación positiva y duradera entre el receptor y tu marca.</p>
+        </div>
+        <div class="card p-5">
+          <div class="mb-3 flex size-9 items-center justify-center rounded-md bg-rose/10">
+            <svg class="h-5 w-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-ink">Alcance multiplicado</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Cada artículo que se usa en público expone tu marca ante nuevas personas más allá del receptor original.</p>
+        </div>
+        <div class="card p-5">
+          <div class="mb-3 flex size-9 items-center justify-center rounded-md bg-rose/10">
+            <svg class="h-5 w-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-ink">Percepción de marca</h3>
+          <p class="mt-2 text-sm leading-6 text-cocoa">Un artículo bien seleccionado comunica que tu empresa cuida los detalles y valora las relaciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

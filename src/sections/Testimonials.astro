@@ -1,0 +1,60 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+
+const useCases = [
+  {
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    title: "Ferias y eventos corporativos",
+    description: "Artículos para entregar, exhibir y reforzar presencia de marca durante ferias comerciales, congresos, lanzamientos y eventos institucionales."
+  },
+  {
+    icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z",
+    title: "Campañas de mercadeo",
+    description: "Productos promocionales alineados al mensaje, público objetivo y presupuesto de cada campaña. Refuerza el alcance de tu comunicación con artículos útiles."
+  },
+  {
+    icon: "M12 8v13m0-13V6a4 4 0 00-4-4H5.45a4 4 0 00-3.971 3.545L1 9.5V13a4 4 0 004 4h8a4 4 0 004-4V9.5l-.479-3.955A4 4 0 0012.55 2H12v6z",
+    title: "Regalos corporativos",
+    description: "Obsequios útiles y personalizados para clientes, colaboradores, proveedores o aliados estratégicos. Elige productos que se usen y que comuniquen consideración."
+  },
+  {
+    icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+    title: "Uniformes e identidad institucional",
+    description: "Textiles personalizados para proyectar orden, coherencia visual y pertenencia en equipos comerciales, de campo, atención al cliente e instituciones."
+  },
+  {
+    icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+    title: "Punto de venta y activaciones",
+    description: "Material POP, displays y artículos de apoyo para destacar tu marca en espacios físicos, tiendas, activaciones y cualquier punto de contacto con el consumidor."
+  },
+  {
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    title: "Compras corporativas y recurrentes",
+    description: "Soluciones para departamentos de compras, recursos humanos y mercadeo que necesitan artículos promocionales de forma regular para distintos usos y campañas."
+  }
+];
+---
+
+<section class="section-pad bg-white">
+  <div class="container-page">
+    <SectionTitle
+      eyebrow="Casos de uso"
+      title="Soluciones para empresas, eventos y campañas."
+      intro="Adaptamos los artículos promocionales al contexto donde tu marca necesita estar presente. Desde una feria hasta un programa de fidelización, hay un producto para cada objetivo."
+      align="center"
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {useCases.map((uc) => (
+        <div class="card p-6">
+          <div class="mb-4 flex size-10 items-center justify-center rounded-md bg-rose/10">
+            <svg class="h-5 w-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={uc.icon} />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-ink">{uc.title}</h3>
+          <p class="mt-3 text-sm leading-6 text-cocoa">{uc.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

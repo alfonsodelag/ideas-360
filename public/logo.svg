@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 160" role="img" aria-label="Ideas 360 logo">
+  <!-- Red circles cluster (left side) -->
+  <!-- Large circle bottom-left -->
+  <circle cx="62" cy="110" r="42" fill="#ED1C24"/>
+  <!-- Medium circle top-left -->
+  <circle cx="68" cy="38" r="30" fill="#ED1C24"/>
+  <!-- Medium circle top-center -->
+  <circle cx="120" cy="28" r="26" fill="#ED1C24"/>
+  <!-- Small circle top-right of cluster -->
+  <circle cx="162" cy="52" r="16" fill="#ED1C24"/>
+  <!-- Small circle bottom-right of cluster -->
+  <circle cx="148" cy="110" r="14" fill="#ED1C24"/>
+  <!-- Tiny circle bottom -->
+  <circle cx="112" cy="132" r="10" fill="#ED1C24"/>
+
+  <!-- "ideas" text in gray -->
+  <text
+    x="192"
+    y="98"
+    font-family="'Montserrat', 'Inter', Arial, sans-serif"
+    font-size="62"
+    font-weight="400"
+    fill="#5C5C5C"
+    letter-spacing="-1"
+  >ideas</text>
+
+  <!-- "360°" text in red -->
+  <text
+    x="192"
+    y="98"
+    font-family="'Montserrat', 'Inter', Arial, sans-serif"
+    font-size="62"
+    font-weight="700"
+    fill="#ED1C24"
+    letter-spacing="-1"
+    dx="225"
+  >360°</text>
+</svg>

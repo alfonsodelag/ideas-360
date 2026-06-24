@@ -1,0 +1,46 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import { siteConfig } from "@/config/site";
+---
+
+<section class="section-pad bg-white">
+  <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+    <div class="overflow-hidden rounded-lg shadow-soft h-96">
+      <iframe
+        src="https://maps.google.com/maps?q=Avenida+Santa+Elena,+Calle+96B+Este,+Parque+Lefevre,+Panama+City,+Panama&output=embed&z=16"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación de Ideas 360 — Parque Lefevre, Ciudad de Panamá"
+      ></iframe>
+    </div>
+    <div>
+      <SectionTitle
+        eyebrow="Ubicación"
+        title="Encuéntranos en Ciudad de Panamá."
+        intro="Atendemos a empresas e instituciones en Panamá. Contáctanos por teléfono, correo o formulario para coordinar tu cotización."
+      />
+      <div class="mt-8 space-y-4 rounded-lg border border-ink/10 bg-cream p-6">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-rose">Dirección</p>
+          <p class="mt-1 font-semibold text-ink">{siteConfig.address}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-rose">Teléfonos</p>
+          <p class="mt-1 text-sm text-cocoa">{siteConfig.phone}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-rose">Correo</p>
+          <a href={`mailto:${siteConfig.email}`} class="mt-1 block text-sm text-cocoa hover:text-rose transition-colors">{siteConfig.email}</a>
+        </div>
+      </div>
+      <div class="mt-6 flex gap-3">
+        <a class="btn-primary" href="#contacto">Solicitar cotización</a>
+        <a class="btn-secondary" href={`mailto:${siteConfig.email}`}>Enviar correo</a>
+      </div>
+    </div>
+  </div>
+</section>
