@@ -11,3 +11,23 @@ dist/
 .DS_Store
 
 .vercel
+
+# Archivos del proyecto anterior (dental) y configuración local
+.sanity/
+CLAUDE.md
+Source/
+about.html
+blog-details.html
+blog.html
+contact.html
+doctor.html
+index.html
+main.html
+pricing.html
+services.html
+readme.txt
+css/
+fonts/
+img/
+js/
+sass/
