@@ -1,0 +1,98 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+---
+
+<BaseLayout
+  title="Página no encontrada | Ideas 360 Panamá"
+  description="La página que buscas no existe. Vuelve al inicio y descubre nuestros artículos promocionales, regalos corporativos y material POP para empresas en Panamá."
+>
+  <section class="relative overflow-hidden bg-white">
+    <!-- Fondo decorativo superior derecho -->
+    <div class="absolute inset-y-0 right-0 hidden w-1/2 bg-shell lg:block"></div>
+
+    <div class="container-page relative grid min-h-[calc(100vh-5rem)] items-center gap-12 py-20 lg:grid-cols-2">
+
+      <!-- Columna izquierda: contenido -->
+      <div class="max-w-xl">
+        <p class="eyebrow">Error 404</p>
+
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+          Esta página no está en nuestro catálogo.
+        </h1>
+
+        <p class="mt-6 text-lg leading-8 text-cocoa">
+          El enlace que buscas fue movido, ya no existe, o quizás escribiste algo diferente.
+          Pero si lo que necesitas son artículos promocionales, regalos corporativos o material POP
+          para tu empresa, estás en el lugar correcto.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button href="/" label="Ir al inicio" />
+          <Button href="/contact" label="Solicitar cotización" variant="secondary" />
+        </div>
+
+        <!-- Accesos rápidos -->
+        <div class="mt-12 border-t border-ink/10 pt-8">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-cocoa">
+            Explora nuestras secciones
+          </p>
+          <nav class="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: "/services", label: "Productos" },
+              { href: "/about", label: "Soluciones" },
+              { href: "/blog", label: "Blog" },
+              { href: "/contact", label: "Contacto" },
+            ].map(({ href, label }) => (
+              <a
+                href={href}
+                class="rounded-md border border-ink/15 px-4 py-2 text-sm font-medium text-cocoa transition hover:border-rose hover:text-rose"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <!-- Columna derecha: número 404 decorativo -->
+      <div class="relative flex items-center justify-center lg:justify-end">
+        <div class="relative select-none text-center">
+          <!-- Número grande de fondo -->
+          <span
+            class="block font-display text-[10rem] font-extrabold leading-none text-rose/10 sm:text-[14rem] lg:text-[16rem]"
+            aria-hidden="true"
+          >
+            404
+          </span>
+
+          <!-- Tarjeta flotante superpuesta -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
+            <!-- Ícono de caja/paquete -->
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-rose text-white shadow-soft">
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            </div>
+            <p class="font-display text-xl font-bold text-ink">Producto no encontrado</p>
+            <p class="max-w-[18ch] text-center text-sm text-cocoa">
+              Pero tenemos todo lo que tu marca necesita.
+            </p>
+          </div>
+        </div>
+
+        <!-- Badge de marca en esquina -->
+        <div class="absolute bottom-0 right-0 rounded-lg bg-white p-5 shadow-soft lg:bottom-10 lg:right-0">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-rose">Ideas 360</p>
+          <p class="mt-1 text-sm font-medium text-ink">Tu logo en todo</p>
+          <p class="mt-0.5 text-xs text-cocoa">Panamá · ventas@ideas360.com.pa</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
